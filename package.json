@@ -28,5 +28,10 @@
     "@types/react-dom": "^18",
     "husky": "^9.0.11",
     "typescript": "^5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
