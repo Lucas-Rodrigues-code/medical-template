@@ -4,5 +4,5 @@ import NavBar from "@/components/nav-bar";
 import { Box } from "@chakra-ui/react";
 
 export default function Home() {
-  return <main className={styles.main}>dfgdfg<Box height={800}></Box></main>;
+  return <main className={styles.main}><Box height={800}></Box></main>;
 }
