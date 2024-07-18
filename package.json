@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commitlint": "commitlint --edit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
@@ -19,9 +21,12 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "husky": "^9.0.11",
     "typescript": "^5"
   }
 }
