@@ -1,13 +1,25 @@
+"use client";
 import {
   Flex,
-  Tabs,
-  TabList,
-  Tab,
-  TabIndicator,
   Button,
+  Drawer,
+  DrawerBody,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Text,
+  Stack,
 } from "@chakra-ui/react";
+import React from "react";
+import { RxDragHandleHorizontal } from "react-icons/rx";
 
-export default function NavBar() {
+export default function MobileNavBar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef: any = React.useRef();
+
+  const [tabIndex, setTabIndex] = React.useState(Number);
+
   return (
     <Flex
       as={"nav"}
@@ -19,13 +31,13 @@ export default function NavBar() {
       position={"fixed"}
       top={0}
       left={0}
-      display={{ base: "none", xl: "flex" }}
+      display={{ base: "flex", xl: "none" }}
     >
       <Flex
         justifyContent={"space-between"}
         alignItems={"center"}
         width={"100%"}
-        margin={250}
+        padding={5}
       >
         <svg
           width="152"
@@ -83,32 +95,54 @@ export default function NavBar() {
             fill="black"
           />
         </svg>
-        <Tabs position="relative" variant="unstyled">
-          <TabList
-            color={"#062126"}
-            fontFamily={"'Poppins', sans-serif"}
-            fontSize={"16px"}
-          >
-            <Tab>Home</Tab>
-            <Tab>Nossos serviços</Tab>
-            <Tab>Sobre</Tab>
-            <Tab>Contato</Tab>
-          </TabList>
-          <TabIndicator
-            mt="-1.5px"
-            height="2px"
-            bg="#E5661E"
-            borderRadius="1px"
-          />
-        </Tabs>
         <Button
           bg={"#24BEE0"}
           borderRadius={"20px"}
-          _hover={{ bg: "green.500" }}
+          ref={btnRef}
+          onClick={onOpen}
         >
-          Fazer agendamento
+          <RxDragHandleHorizontal size={24} color="white" />
         </Button>
       </Flex>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent bg="white">
+          <DrawerCloseButton bg={"#24BEE0"} />
+          <DrawerBody mt={5}>
+            <Stack
+              spacing={4}
+              color={"#062126"}
+              fontFamily={"'Poppins', sans-serif"}
+              fontSize={"24px"}
+            >
+              <Text
+                color={tabIndex === 0 ? "#E5661E" : ""}
+                onClick={() => setTabIndex(0)}
+              >
+                Home
+              </Text>
+              <Text
+                color={tabIndex === 1 ? "#E5661E" : ""}
+                onClick={() => setTabIndex(1)}
+              >
+                Nossos serviços
+              </Text>
+              <Text
+                color={tabIndex === 2 ? "#E5661E" : ""}
+                onClick={() => setTabIndex(2)}
+              >
+                Sobre
+              </Text>
+              <Text
+                color={tabIndex === 3 ? "#E5661E" : ""}
+                onClick={() => setTabIndex(3)}
+              >
+                Contato
+              </Text>
+            </Stack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Flex>
   );
 }
