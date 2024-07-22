@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.className} ${poppins.className}`}>
-        <Flex justifyContent="center" direction={"column"} bg={"blue"}>
+        <Flex justifyContent="center" direction={"column"} bg={"#f7fcfd"}>
           <Providers>
             <NavBar />
             <MobileNavBar />
-            <Box marginX={[2, 2, 2, 10, 250]} bg={"red"}>
+            <Box marginX={[2, 2, 2, 10, 200, 250]} bg={"#f7fcfd"}>
               {children}
             </Box>
           </Providers>
