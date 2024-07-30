@@ -20,6 +20,7 @@ export default function NavBar() {
       top={0}
       left={0}
       display={{ base: "none", xl: "flex" }}
+      zIndex={100}
     >
       <Flex
         justifyContent={"space-between"}

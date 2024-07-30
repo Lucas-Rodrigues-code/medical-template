@@ -1,5 +1,5 @@
 "use client";
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Grid, Image, Text, Wrap } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,17 +12,18 @@ import "./styles.css";
 
 import { Pagination } from "swiper/modules";
 import useWindowSize from "@/hooks/useWindowSize";
+import WhyUs from "./why-us";
 
 export default function Services() {
   const { width } = useWindowSize();
 
   return (
-    <Flex w={"100%"} pb={50} direction={"column"} >
+    <Flex w={"100%"} pb={50} direction={"column"}>
       <Text
         color={"#062126"}
         fontFamily={"'Poppins', sans-serif"}
-              fontSize={{ base: "16px", md: "48px" }}
-              mb={15}
+        fontSize={{ base: "16px", md: "48px" }}
+        mb={15}
       >
         Nossos serviços
       </Text>
@@ -88,6 +89,15 @@ export default function Services() {
           </Flex>
         </SwiperSlide>
       </Swiper>
+      <Text
+        color={"#062126"}
+        fontFamily={"'Poppins', sans-serif"}
+        fontSize={{ base: "16px", md: "48px" }}
+        my={15}
+      >
+        Por que a gente?
+      </Text>
+      <WhyUs />
     </Flex>
   );
 }
